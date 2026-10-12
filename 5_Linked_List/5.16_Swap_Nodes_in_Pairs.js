@@ -1,4 +1,4 @@
-//^ Approach 1 - Iterative approach  24 Better Approach compared to recursive way
+//^ Approach 1 - Iterative approach  : Better Approach compared to recursive way
 
 var swapPairs = function (head) {
     if (!head || !head.next) return head
