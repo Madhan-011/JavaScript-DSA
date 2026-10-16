@@ -1,39 +1,32 @@
-//& Approach - 2  using hashed key 49
-
+//& Approach - 2  using hashed key
 
 var groupAnagrams = function (strs) {
-    let map = {}
+  let map = {};
 
-    for (let i = 0; i < strs.length; i++) {
+  for (let i = 0; i < strs.length; i++) {
+    //Create a key
+    let freqArr = Array(26).fill(0);
+    let s = strs[i];
 
-        //Create a key
-        let freqArr = Array(26).fill(0)
-        let s = strs[i]
-
-        for (let j = 0; j < s.length; j++) {
-            let index = s[j].charCodeAt() - "a".charCodeAt()
-            ++freqArr[index]
-        }
-
-        let key = ""
-        for (let k = 0; k < 26; k++) {
-            key = key + String.fromCharCode(k) + freqArr[k]
-        }
-
-        //fill the map
-        if (!map[key]) {
-            map[key] = [s]
-        } else {
-            map[key].push(s)
-        }
+    for (let j = 0; j < s.length; j++) {
+      let index = s[j].charCodeAt() - "a".charCodeAt();
+      ++freqArr[index];
     }
-    return [...Object.values(map)]
+
+    let key = "";
+    for (let k = 0; k < 26; k++) {
+      key = key + String.fromCharCode(k) + freqArr[k];
+    }
+
+    //fill the map
+    !map[key] ? (map[key] = [s]) : map[key].push(s);
+  }
+  return [...Object.values(map)];
 };
 
 
 
 // Given an array of strings strs, group the anagrams together. You can return the answer in any order.
-
 
 // * Example 1:
 
